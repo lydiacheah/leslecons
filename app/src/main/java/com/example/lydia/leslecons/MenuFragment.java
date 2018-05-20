@@ -2,6 +2,7 @@ package com.example.lydia.leslecons;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -53,7 +55,9 @@ public class MenuFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        readFiles();
+        if (getActivity().getFileStreamPath("lessons.txt").exists()) {
+            readFiles();
+        }
 
         // initialize list items and listener
         ListView list = getActivity().findViewById(R.id.list);
@@ -81,12 +85,17 @@ public class MenuFragment extends Fragment {
 
     private void openPost(TextView view) {
         DashboardActivity activity = (DashboardActivity) getActivity();
-        Intent intent = new Intent(activity, PostActivity.class);
         String title = view.getText().toString();
         String post = lessonMap.get(title);
-        intent.putExtra("title", title);
-        intent.putExtra("post", post);
-        activity.startActivity(intent);
+        if (activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Intent intent = new Intent(activity, PostActivity.class);
+            intent.putExtra("title", title);
+            intent.putExtra("post", post);
+            activity.startActivity(intent);
+        } else {
+            PostFragment postFrag = (PostFragment) getFragmentManager().findFragmentById(R.id.post_fragment);
+            postFrag.displayPost(title, post);
+        }
     }
 
     private void newPost(View view) {

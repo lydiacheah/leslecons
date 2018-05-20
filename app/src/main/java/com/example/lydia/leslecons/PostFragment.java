@@ -1,6 +1,8 @@
 package com.example.lydia.leslecons;
 
 
+import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -27,10 +29,20 @@ public class PostFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PostActivity activity = (PostActivity) getActivity();
-        TextView title = activity.findViewById(R.id.title);
-        TextView post = activity.findViewById(R.id.post);
-        title.setText(activity.getIntent().getStringExtra("title"));
-        post.setText(activity.getIntent().getStringExtra("post"));
+
+        String title = getActivity().getIntent().getStringExtra("title");
+        String post = getActivity().getIntent().getStringExtra("post");
+        displayPost(title, post);
+    }
+
+    public void displayPost(String title, String post) {
+        TextView titleView = getActivity().findViewById(R.id.title);
+        TextView postView = getActivity().findViewById(R.id.post);
+        if (title != null && post != null) {
+            titleView.setText(title);
+            postView.setText(post);
+        } else {
+            postView.setText("select a lesson to review.");
+        }
     }
 }
