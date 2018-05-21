@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
     <fragment
-        android:id="@+id/menu"
-        android:name="com.example.lydia.leslecons.MenuFragment"
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        tools:layout="@layout/fragment_menu" />
+        android:id="@+id/menu_fragment"
+        android:name="com.example.lydia.leslecons.MenuFragment"
+        tools:layout="@layout/fragment_menu"
+        />
 
-    <fragment
+    <FrameLayout
         android:layout_width="0px"
         android:layout_height="match_parent"
-        android:id="@+id/post_fragment"
-        android:name="com.example.lydia.leslecons.PostFragment"
         android:layout_weight="3"
-        tools:layout="@layout/fragment_post"/>
+        android:id="@+id/post_add_container">
+
+    </FrameLayout>
 </LinearLayout>

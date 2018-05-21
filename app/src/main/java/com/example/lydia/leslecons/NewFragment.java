@@ -17,10 +17,6 @@ import java.io.PrintStream;
 
 import static android.content.Context.MODE_APPEND;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class NewFragment extends Fragment {
 
 
@@ -43,12 +39,12 @@ public class NewFragment extends Fragment {
         getActivity().findViewById(R.id.done_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveLesson(view);
+                saveLesson();
             }
         });
     }
 
-    public void saveLesson(View view) {
+    public void saveLesson() {
         Activity activity = getActivity();
         String title = ((EditText) activity.findViewById(R.id.title_edit)).getText().toString();
         String post = ((EditText) activity.findViewById(R.id.post_edit)).getText().toString();
