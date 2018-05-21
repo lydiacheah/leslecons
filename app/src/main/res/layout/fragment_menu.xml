@@ -11,8 +11,8 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="12"
+        android:layout_height="0px"
+        android:layout_weight="9"
         android:padding="15sp">
 
     </ListView>
@@ -20,7 +20,7 @@
     <Button
         android:id="@+id/new_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0px"
         android:layout_weight="1"
         android:layout_margin="15sp"
         android:text="new"
