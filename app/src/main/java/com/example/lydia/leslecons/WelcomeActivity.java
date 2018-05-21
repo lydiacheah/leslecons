@@ -27,14 +27,14 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void setUpWelcomeText() {
-        LinearLayout layout = findViewById(R.id.welcome_layout);
+        LinearLayout layout = findViewById(R.id.welcome_text_container);
         TextView welcomeTextView = new TextView(this);
         welcomeTextView.setTextColor(Color.BLACK); // colour
         welcomeTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER); // alignment
         welcomeTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20); // text size
         welcomeTextView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 25,  getResources().getDisplayMetrics()), 1); // spacing between lines
         setLayoutDimensionsParams(welcomeTextView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT); // width and height
-        setMarginParams(welcomeTextView, 0, 350, 0, 0); // margins
+        setMarginParams(welcomeTextView, 0, 150, 0, 0); // margins
 
         if (name == null) {
             // question
