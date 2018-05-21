@@ -34,7 +34,6 @@ public class WelcomeActivity extends AppCompatActivity {
         welcomeTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20); // text size
         welcomeTextView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 25,  getResources().getDisplayMetrics()), 1); // spacing between lines
         setLayoutDimensionsParams(welcomeTextView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT); // width and height
-        setMarginParams(welcomeTextView, 0, 150, 0, 0); // margins
 
         if (name == null) {
             // question
@@ -43,15 +42,16 @@ public class WelcomeActivity extends AppCompatActivity {
             EditText getNameText = new EditText(this);
             getNameText.setId(EDIT_TEXT_FOR_NAME_ID); // id
             getNameText.setHint("your name"); // hint
-            getNameText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15); // text size
+            getNameText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20); // text size
             setLayoutDimensionsParams(getNameText, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT); // width and height
-            setMarginParams(getNameText, 200, 100, 200, 0); // margins
-
-            layout.addView(welcomeTextView, 0);
-            layout.addView(getNameText, 1);
+            setMarginParams(getNameText, 200, 75, 200, 0); // margins
+            // add both to view
+            layout.addView(welcomeTextView);
+            layout.addView(getNameText);
         } else {
+            setMarginParams(welcomeTextView, 0, 0, 0, 150); // margins
             welcomeTextView.setText("Welcome back,\n" + name.toLowerCase());
-            layout.addView(welcomeTextView, 0);
+            layout.addView(welcomeTextView);
         }
     }
 
